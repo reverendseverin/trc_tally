@@ -6,16 +6,27 @@ import json
 import tkinter as tk
 import os
 
-################### Configurations ########################
-# The followig are configurations for the application. Please ensure 
-mqtt_broker_ip = "[INSERT MQTT ENDPOINT]" #Mosquito Broker for MQTT publishing
-mqtt_broker_port = 18069        #Mosquito Port for MQTT publishing (Likely not to change)
+if not os.path.exists("config.json"):
+    print("configFile not found. Downloading...")
+    tally_url = "https://raw.githubusercontent.com/reverendseverin/trc_tally/master/config.json"
+    try:
+        response = requests.get(tally_url)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        with open("config.json", "w") as file:
+            file.write(response.text)
+        print("Downloaded config.json successfully.")
+    except requests.RequestException as e:
+        print(f"Error downloading config.json: {e}")
+        exit(1)  # Exit the program as the file is essential
+# Load configurations from config.json
+with open('config.json', 'r') as file:
+    config = json.load(file)
 
-tallyfile = "tallyAssignments.json" # Tally Assignment File
-
-api_url = "[INSERT VMIX API URL]" # VMIX API URL
-api_refresh = 200
-###########################################################
+mqtt_broker_ip = config['mqtt_broker_ip']
+mqtt_broker_port = config['mqtt_broker_port']
+tallyfile = config['tallyfile']
+api_url = config['api_url']
+api_refresh = config['api_refresh']
 
 # Callback when connected successfully to the broker
 def on_connect(client, userdata, flags, rc):
