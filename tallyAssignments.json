@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Boat Camera",
+        "ip": "tally01.local",
+        "mac":"",
+        "cloud":true,
+        "vMixID": 1
+    },
+    {
+        "name": "Tally02",
+        "ip": "tally02.local",
+        "mac":"",
+        "cloud":true,
+        "vMixID": 2
+    },
+    {
+        "name": "Tally03",
+        "ip": "tally03.local",
+        "mac":"",
+        "cloud":true,
+        "vMixID": 3
+    },
+    {
+        "name": "Tally04",
+        "ip": "tally04.local",
+        "mac":"",
+        "cloud":true,
+        "vMixID": 4
+    },
+    {
+        "name": "Tally05",
+        "ip": "tally05.local",
+        "mac":"",
+        "cloud":true,
+        "vMixID": 5
+    }
+]
