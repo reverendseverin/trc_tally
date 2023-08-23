@@ -3,6 +3,8 @@
 
 This project integrates vMix's API and the Tally MA workflows to control lights via a cloud broker via MQTT requests.
 
+## App Installation
+App can be found in the /app folder.
 
 ## Dependencies
 
