@@ -29,7 +29,15 @@ def main():
         log.warning("Default password in use — change 'web.password' in config.json")
 
     try:
-        app.run(host="0.0.0.0", port=port, threaded=True, use_reloader=False)
+        # Production WSGI server. The threads must comfortably exceed the number
+        # of concurrent browsers, because each open dashboard holds one thread
+        # for its live SSE stream; the rest serve normal API calls.
+        try:
+            from waitress import serve
+            serve(app, host="0.0.0.0", port=port, threads=24, channel_timeout=300)
+        except ImportError:
+            log.warning("waitress not installed; using Flask's dev server")
+            app.run(host="0.0.0.0", port=port, threaded=True, use_reloader=False)
     finally:
         log.info("Shutting down…")
         core.shutdown()

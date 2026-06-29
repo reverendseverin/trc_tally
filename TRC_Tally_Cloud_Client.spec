@@ -18,7 +18,8 @@ a = Analysis(
         ('tally.svg', '.'),
         ('ColorSchemes.json', '.'),
     ] + paho_datas,
-    hiddenimports=paho_hidden + collect_submodules('serial') + [
+    hiddenimports=paho_hidden + collect_submodules('serial')
+    + collect_submodules('waitress') + [
         'paho.mqtt.client', 'serial.tools.list_ports',
     ],
     hookspath=[],
