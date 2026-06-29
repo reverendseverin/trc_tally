@@ -19,14 +19,14 @@ jobs:
       matrix:
         include:
           - os: macos-latest
-            bin: dist/TRC_Tally_Cloud_Client
-            out: TRC_Tally_Cloud_Client-macos
+            binname: TRC_Tally_Cloud_Client
+            archive: TRC_Tally_Cloud_Client-macos.tar.gz
           - os: ubuntu-latest
-            bin: dist/TRC_Tally_Cloud_Client
-            out: TRC_Tally_Cloud_Client-linux
+            binname: TRC_Tally_Cloud_Client
+            archive: TRC_Tally_Cloud_Client-linux.tar.gz
           - os: windows-latest
-            bin: dist/TRC_Tally_Cloud_Client.exe
-            out: TRC_Tally_Cloud_Client-windows.exe
+            binname: TRC_Tally_Cloud_Client.exe
+            archive: TRC_Tally_Cloud_Client-windows.zip
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -43,19 +43,28 @@ jobs:
       - name: Build
         run: pyinstaller --clean -y TRC_Tally_Cloud_Client.spec
 
-      - name: Rename binary per OS
+      # Package into an archive so the executable bit survives download. tar
+      # records file modes (no chmod needed on extract); Windows uses a zip.
+      - name: Package
         shell: bash
-        run: mv "${{ matrix.bin }}" "${{ matrix.out }}"
+        working-directory: dist
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            7z a "../${{ matrix.archive }}" "${{ matrix.binname }}"
+          else
+            chmod +x "${{ matrix.binname }}"
+            tar -czf "../${{ matrix.archive }}" "${{ matrix.binname }}"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.out }}
-          path: ${{ matrix.out }}
+          name: ${{ matrix.archive }}
+          path: ${{ matrix.archive }}
           if-no-files-found: error
 
       - name: Attach to release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ matrix.out }}
+          files: ${{ matrix.archive }}
