@@ -2,6 +2,6 @@
     "mqtt_broker_ip": "[INSERT MQTT ENDPOINT]",
     "mqtt_broker_port": 18069,
     "tallyfile": "tallyAssignments.json",
-    "api_url": "[INSERT VMIX API URL]",
+    "api_urls": ["[INSERT VMIX API URL 1]", "[INSERT VMIX API URL 2]", "[INSERT VMIX API URL 3]", "[INSERT VMIX API URL 4]", "[INSERT VMIX API URL 5]"],
     "api_refresh": 200
 }

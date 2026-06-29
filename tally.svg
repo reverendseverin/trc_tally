@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 250 250" style="enable-background:new 0 0 250 250;" xml:space="preserve">
+<style type="text/css">
+	.st1{fill:#282828;}
+	.st2{fill:#333333;}
+	.st3{fill:#1A1A1A;stroke:#F15A24;stroke-miterlimit:10;}
+	.st4{fill:#F2F2F2;}
+	.st5{font-family:'MyriadPro-Regular';}
+	.st6{font-size:18px;}
+	.st7{fill:#1A1A1A;}
+</style>
+<defs>
+	<filter id="blur-effect" x="-10" y="-10" width="220" height="220">
+		<feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+	</filter>
+</defs>
+<g id="Layer_2">
+	<g>
+		<ellipse fill="#FF0000" cx="124.21" cy="67.18" rx="46.39" ry="15.97" style="filter:url(#blur-effect);" />
+	</g>
+	<g>
+		<ellipse fill="#FF0000"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -44.9829 77.0974)" cx="70.57" cy="92.85" rx="43.14" ry="21.27" style="filter:url(#blur-effect);" />
+	</g>
+	<path fill="#FF0000"  d="M51.58,110.17c10.12,0,18.33,15.95,18.33,35.62s-8.21,35.62-18.33,35.62s-18.33-15.95-18.33-35.62
+		S41.46,110.17,51.58,110.17z" style="filter:url(#blur-effect);" />
+	<path fill="#FF0000"  d="M51.06,152.08c10.12,0,18.33,17.33,18.33,38.71s-8.21,38.71-18.33,38.71s-18.33-17.33-18.33-38.71
+		S40.94,152.08,51.06,152.08z" style="filter:url(#blur-effect);" />
+	<ellipse fill="#FF0000"  cx="88.13" cy="216.24" rx="38.25" ry="18.33" style="filter:url(#blur-effect);" />
+	<g>
+		<ellipse fill="#FF0000"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -11.5398 154.7751)" cx="181.06" cy="91.32" rx="20.71" ry="43.14" style="filter:url(#blur-effect);" />
+	</g>
+	<ellipse fill="#FF0000"  cx="200.45" cy="144.87" rx="18.33" ry="35.62" style="filter:url(#blur-effect);" />
+	<ellipse fill="#FF0000"  cx="199.97" cy="189.35" rx="18.33" ry="39.23" style="filter:url(#blur-effect);" />
+	<ellipse fill="#FF0000"  cx="157.9" cy="216.32" rx="38.25" ry="18.33" style="filter:url(#blur-effect);" />
+</g>
+<g id="Layer_1">
+	<g id="Layer_1_00000011740413778210708140000000697044182560799160_">
+		<path class="st1" d="M131.29,242.81h-12.76c-1.86,0-3.36-1.5-3.36-3.36V216.8c0-1.86,1.5-3.36,3.36-3.36h12.76
+			c1.86,0,3.36,1.5,3.36,3.36v22.66C134.65,241.31,133.15,242.81,131.29,242.81z"/>
+		<path class="st2" d="M200.99,141.74v51.25c0,13.08-10.61,23.69-23.69,23.69H74.68c-13.08,0-23.69-10.61-23.69-23.69v-51.25
+			c0-41.42,33.58-75,75-75S200.99,100.32,200.99,141.74z"/>
+		<rect x="112.45" y="182.77" class="st3" width="25.11" height="25.11"/>
+		<text transform="matrix(1 0 0 1 120.6157 201.7716)" class="st4 st5 st6">3</text>
+		<g>
+			<circle class="st7" cx="80.85" cy="123.19" r="2.63"/>
+			<circle class="st7" cx="103.1" cy="123.19" r="2.63"/>
+			<circle class="st7" cx="125.34" cy="123.19" r="2.63"/>
+			<circle class="st7" cx="147.59" cy="123.19" r="2.63"/>
+			<circle class="st7" cx="169.83" cy="123.19" r="2.63"/>
+		</g>
+		<g>
+			<circle class="st7" cx="103.1" cy="108.88" r="2.63"/>
+			<circle class="st7" cx="125.34" cy="108.88" r="2.63"/>
+			<circle class="st7" cx="147.59" cy="108.88" r="2.63"/>
+		</g>
+		<g>
+			<circle class="st7" cx="80.85" cy="137.51" r="2.63"/>
+			<circle class="st7" cx="103.1" cy="137.51" r="2.63"/>
+			<circle class="st7" cx="125.34" cy="137.51" r="2.63"/>
+			<circle class="st7" cx="147.59" cy="137.51" r="2.63"/>
+			<circle class="st7" cx="169.83" cy="137.51" r="2.63"/>
+		</g>
+		<g>
+			<circle class="st7" cx="80.85" cy="151.82" r="2.63"/>
+			<circle class="st7" cx="103.1" cy="151.82" r="2.63"/>
+			<circle class="st7" cx="125.34" cy="151.82" r="2.63"/>
+			<circle class="st7" cx="147.59" cy="151.82" r="2.63"/>
+			<circle class="st7" cx="169.83" cy="151.82" r="2.63"/>
+		</g>
+		<g>
+			<circle class="st7" cx="80.85" cy="166.13" r="2.63"/>
+			<circle class="st7" cx="103.1" cy="166.13" r="2.63"/>
+			<circle class="st7" cx="125.34" cy="166.13" r="2.63"/>
+			<circle class="st7" cx="147.59" cy="166.13" r="2.63"/>
+			<circle class="st7" cx="169.83" cy="166.13" r="2.63"/>
+		</g>
+	</g>
+</g>
+</svg>

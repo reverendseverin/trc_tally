@@ -1,0 +1,57 @@
+name: Build executables
+
+# PyInstaller can't cross-compile, so each binary is built on its own native
+# runner. Produces macOS, Linux and Windows executables as workflow artifacts,
+# and attaches them to a GitHub Release when you push a v* tag.
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write  # needed to attach binaries to a Release on tag builds
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            artifact: TRC_Tally_Cloud_Client-macos
+            bin: dist/TRC_Tally_Cloud_Client
+          - os: ubuntu-latest
+            artifact: TRC_Tally_Cloud_Client-linux
+            bin: dist/TRC_Tally_Cloud_Client
+          - os: windows-latest
+            artifact: TRC_Tally_Cloud_Client-windows
+            bin: dist/TRC_Tally_Cloud_Client.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Build
+        run: pyinstaller --clean -y TRC_Tally_Cloud_Client.spec
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.bin }}
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.bin }}

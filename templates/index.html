@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRC Tally</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Login -->
+  <div id="login" class="login hidden">
+    <form id="login-form" class="login-card">
+      <h1>TRC Tally</h1>
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+      <button type="submit">Sign in</button>
+      <p id="login-error" class="error"></p>
+    </form>
+  </div>
+
+  <!-- App -->
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <span class="brand">TRC Tally</span>
+      <span class="spacer"></span>
+      <span id="broker" class="status-pill">connecting…</span>
+      <button id="settings" class="btn ghost">Settings</button>
+      <button id="logout" class="btn ghost">Sign out</button>
+    </header>
+
+    <main>
+      <section>
+        <h2>Dashboard</h2>
+        <div id="dashboard" class="dash"></div>
+        <p id="dash-empty" class="muted hidden">No tallies yet. Add one below.</p>
+      </section>
+
+      <section>
+        <div class="row-between">
+          <h2>Machines &amp; assignments</h2>
+          <div>
+            <button id="provision" class="btn ghost">Provision tally</button>
+            <button id="add-machine" class="btn">+ Machine</button>
+            <button id="add-tally" class="btn">+ Tally</button>
+          </div>
+        </div>
+        <p class="muted">Drag a tally onto a machine to assign it.</p>
+        <div id="machines" class="mgrid"></div>
+
+        <h3>Unassigned</h3>
+        <div id="unassigned" class="drop" data-machine=""></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <h3 id="modal-title"></h3>
+      <div id="modal-body"></div>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn ghost">Cancel</button>
+        <button id="modal-save" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/tally-device.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

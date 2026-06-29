@@ -46,6 +46,13 @@ LateNightNews
 def serve_xml():
     return Response(XML_CONTENT, mimetype='application/xml')
 
+@app.route("/set")
+def set_state():
+    # e.g. /set?preview=1&active=2 — set the tally state without the CLI.
+    from flask import request
+    update_xml_content(request.args.get("preview", "1"), request.args.get("active", "2"))
+    return Response(XML_CONTENT, mimetype='application/xml')
+
 def update_xml_content(preview_value, active_value):
     global XML_CONTENT
     # Use the xml.etree.ElementTree module to parse and update the XML
@@ -63,23 +70,36 @@ def cli_loop():
             # Prompt the user for updates
             preview_value = input("Enter new value for <preview>: ")
             active_value = input("Enter new value for <active>: ")
-            
+
             update_xml_content(preview_value, active_value)
-            
+
             print("<preview> and <active> updated!")
-        
+
+        except (EOFError, KeyboardInterrupt):
+            # No interactive stdin (e.g. run headless) — just keep serving XML.
+            import time
+            while True:
+                time.sleep(3600)
         except Exception as e:
             print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
+    import os
+    import sys
     import threading
-    
+
+    # Port from argv[1] or PORT env (default 8088) so several emulators can run
+    # at once to test multiple vMix machines.
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 8088))
+
     # Suppress Flask and Werkzeug's default log messages
     app.logger.setLevel(logging.ERROR)
     logging.getLogger('werkzeug').setLevel(logging.ERROR)
-    
+    print(f"vMix emulator on http://127.0.0.1:{port}")
+
     # Start the Flask app on a separate thread
-    flask_thread = threading.Thread(target=app.run, kwargs={'port': 8088})
+    flask_thread = threading.Thread(
+        target=app.run, kwargs={'port': port, 'use_reloader': False}, daemon=True)
     flask_thread.start()
 
     # Start the CLI loop in the main thread
